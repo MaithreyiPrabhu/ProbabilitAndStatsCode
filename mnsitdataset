@@ -1,0 +1,26 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as py
+
+#Read the csv training data
+d = pd.read_csv('C:\\Users\Maithreyi.Prabhu\Downloads\mnist_train.csv')
+
+#Save all the labels into a variables
+#print(d.head(5))
+Labels = d['label']
+#print(Labels)
+#print(d.shape)
+#print(l.shape)
+
+Dropped = d.drop("label",axis=1)
+print(Dropped)
+print(Dropped.shape)
+print("Label at 100 th value is ",Labels[100])
+#Display or  plot a number
+py.figure(figsize=(1,1)) #gives the graphy or  plot size
+x = 100 #Use for checking the 100th item in the matrix of dropped
+grid_data = Dropped.iloc[x].as_matrix().reshape(28,28)
+py.imshow(grid_data,interpolation="none", cmap="gray")
+py.show()
+
+
